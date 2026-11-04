@@ -264,8 +264,6 @@ function loadProfile() {
 
     renderRegistrations();
     renderTickets();
-
-    console.log("EVENTO mock profile loaded:", currentUser);
 }
 
 // ============================================
@@ -832,10 +830,5 @@ logoutBtn?.addEventListener("click", () => {
     window.location.reload();
 });
 
-// ============================================
-// RESTORE USER SESSION
-// ============================================
-
+// Initialize
 loadProfile();
-
-console.log("EVENTO frontend-only profile system loaded.");

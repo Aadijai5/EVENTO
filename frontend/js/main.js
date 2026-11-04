@@ -456,4 +456,3 @@ function loadNavbarProfile() {
 filterEvents();
 displayRegisteredEvents();
 loadNavbarProfile();
-console.log("EVENTO frontend-only prototype initialized.");

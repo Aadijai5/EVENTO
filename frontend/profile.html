@@ -1,10 +1,15 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EVENTO — My Profile, registrations and digital tickets.">
     <title>My Profile | EVENTO</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,171 +18,99 @@
 
     <main class="profile-page">
 
-      
-<header class="profile-page-header">
-
-    <div class="profile-header-content">
-        <span class="eyebrow">YOUR EVENT SPACE</span>
-        <h1>My Profile</h1>
-        <p>Manage your details and keep track of your experiences.</p>
-    </div>
-
-    <div class="profile-header-actions">
-
-        <button class="theme-toggle" id="themeToggle"
-                aria-label="Toggle light and dark theme">
-            <span id="themeIcon">☾</span>
-        </button>
-
-        <a href="index.html" class="primary-button">
-            Explore Events
-        </a>
-
-    </div>
-
-</header>
-
+        <!-- Page Header -->
+        <header class="profile-page-header">
+            <div class="profile-header-content">
+                <span class="eyebrow">YOUR EVENT SPACE</span>
+                <h1>My Profile</h1>
+                <p>Manage your details and keep track of your experiences.</p>
+            </div>
+            <div class="profile-header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span id="themeIcon">☾</span>
+                </button>
+                <a href="index.html" class="primary-button">Explore Events</a>
+            </div>
+        </header>
 
         <div class="profile-layout">
 
-            <!-- Profile Sidebar -->
+            <!-- Sidebar -->
             <aside class="profile-sidebar">
 
-               <div class="profile-avatar-large" id="profileAvatar">
-    <img id="profileImage" src="" alt="Profile picture" hidden>
-    <span id="profileAvatarIcon">👤</span>
-</div>
-
-<button class="secondary-button" id="editProfileBtn">
-    Edit Profile
-</button>
-<button type="button" id="logoutBtn" class="secondary-button">
-    Logout
-</button>
+                <div class="profile-avatar-large" id="profileAvatar">
+                    <img id="profileImage" src="" alt="Profile picture" hidden>
+                    <span id="profileAvatarIcon">👤</span>
+                </div>
 
                 <h2 id="profileName">Event Participant</h2>
-                <p id="profileEmail">Your registered email</p>
+                <p id="profileEmail">—</p>
+
+                <button class="secondary-button" id="editProfileBtn">Edit Profile</button>
+                <button class="secondary-button" id="logoutBtn" type="button">Logout</button>
 
                 <div class="profile-divider"></div>
 
-                <div class="profile-menu">
-                    <a href="#overview" class="profile-menu-link active">
-                        Overview
-                    </a>
-
-                    <a href="#registered-events" class="profile-menu-link">
-                        My Registered Events
-                    </a>
-
-                    <a href="#my-tickets" class="profile-menu-link">
-                        My Tickets
-                    </a>
-                </div>
+                <nav class="profile-menu">
+                    <a href="#overview"          class="profile-menu-link active">Overview</a>
+                    <a href="#registered-events" class="profile-menu-link">My Events</a>
+                    <a href="#my-tickets"        class="profile-menu-link">My Tickets</a>
+                </nav>
 
             </aside>
 
-            <!-- Main Profile Content -->
+            <!-- Main Content -->
             <section class="profile-main">
 
-<!-- AUTHENTICATION SECTION -->
-<section class="profile-email-section" id="authSection">
+                <!-- Auth Section -->
+                <div class="profile-email-section" id="authSection">
+                    <span class="eyebrow">WELCOME TO EVENTO</span>
+                    <h2 id="authHeading">Login to your account</h2>
+                    <p id="authDescription">Login to access your profile, registrations and tickets.</p>
 
-    <div>
-        <span class="eyebrow">WELCOME TO EVENTO</span>
-        <h2 id="authHeading">Login to your account</h2>
-        <p id="authDescription">
-            Login to access your profile, registrations and tickets.
-        </p>
-    </div>
+                    <!-- Login Form -->
+                    <form id="loginForm" class="profile-email-form">
+                        <input type="email"    id="loginEmail"    placeholder="Email address" required>
+                        <input type="password" id="loginPassword" placeholder="Password"      required>
+                        <button type="submit" class="primary-button">Login</button>
+                    </form>
 
-    <!-- LOGIN FORM -->
-    <form id="loginForm" class="profile-email-form">
+                    <!-- Signup Form -->
+                    <form id="signupForm" class="profile-email-form" hidden>
+                        <input type="text"     id="signupName"     placeholder="Full name"                       minlength="2" required>
+                        <input type="email"    id="signupEmail"    placeholder="Email address"                   required>
+                        <input type="password" id="signupPassword" placeholder="Password (minimum 8 characters)" minlength="8" required>
+                        <button type="submit" class="primary-button">Create Account</button>
+                    </form>
 
-        <input
-            type="email"
-            id="loginEmail"
-            placeholder="Email address"
-            required
-        >
+                    <p id="authMessage" class="profile-message" aria-live="polite"></p>
 
-        <input
-            type="password"
-            id="loginPassword"
-            placeholder="Password"
-            required
-        >
+                    <button type="button" id="authToggle" class="secondary-button" style="margin-top:12px;">
+                        Don't have an account? Sign up
+                    </button>
+                </div>
 
-        <button type="submit" class="primary-button">
-            Login
-        </button>
-
-    </form>
-
-    <!-- SIGNUP FORM -->
-    <form id="signupForm" class="profile-email-form" hidden>
-
-        <input
-            type="text"
-            id="signupName"
-            placeholder="Full name"
-            minlength="2"
-            required
-        >
-
-        <input
-            type="email"
-            id="signupEmail"
-            placeholder="Email address"
-            required
-        >
-
-        <input
-            type="password"
-            id="signupPassword"
-            placeholder="Password (minimum 8 characters)"
-            minlength="8"
-            required
-        >
-
-        <button type="submit" class="primary-button">
-            Create Account
-        </button>
-
-    </form>
-
-    <p id="authMessage" class="profile-message"></p>
-
-    <button type="button" id="authToggle" class="secondary-button">
-        Don't have an account? Sign up
-    </button>
-
-</section>
-
-
+                <!-- Welcome -->
                 <section class="profile-welcome" id="overview">
                     <span class="eyebrow">WELCOME TO EVENTO</span>
                     <h2>Your experiences, all in one place.</h2>
-                    <p>Explore your registrations and access your event tickets.</p>
+                    <p>Explore your registrations and access your event tickets below.</p>
                 </section>
 
-                <!-- Statistics -->
+                <!-- Stats -->
                 <div class="profile-stats">
-
                     <div class="profile-stat-card">
                         <p>Total Registrations</p>
                         <h2 id="profileTotalEvents">0</h2>
                     </div>
-
                     <div class="profile-stat-card">
                         <p>Upcoming Events</p>
                         <h2 id="profileUpcomingEvents">0</h2>
                     </div>
-
                     <div class="profile-stat-card">
                         <p>Completed Events</p>
                         <h2 id="profileCompletedEvents">0</h2>
                     </div>
-
                 </div>
 
                 <!-- Registered Events -->
@@ -188,20 +121,17 @@
                             <h2>My Registered Events</h2>
                         </div>
                     </div>
-
                     <div id="profileEventList" class="profile-event-list"></div>
-
                     <p id="profileEmptyMessage" hidden>
                         You haven't registered for any events yet.
-                        <a href="index.html#events">Explore events</a>
+                        <a href="index.html#events">Explore events →</a>
                     </p>
                 </section>
 
-                <!-- Tickets -->
+                <!-- Tickets / Passes -->
                 <section class="profile-events-section" id="my-tickets">
                     <span class="eyebrow">YOUR PASSES</span>
                     <h2>My Tickets</h2>
-
                     <div id="profileTicketList" class="profile-ticket-list"></div>
                 </section>
 
@@ -209,72 +139,47 @@
 
         </div>
 
-        
-<!-- Edit Profile Modal -->
-<div class="profile-modal" id="editProfileModal">
+        <!-- Edit Profile Modal -->
+        <div class="profile-modal" id="editProfileModal" role="dialog" aria-modal="true" aria-labelledby="editProfileTitle">
+            <div class="profile-modal-content">
+                <div class="profile-modal-header">
+                    <div>
+                        <span class="eyebrow">PERSONAL DETAILS</span>
+                        <h2 id="editProfileTitle">Edit Your Profile</h2>
+                    </div>
+                    <button type="button" id="closeProfileModal" class="modal-close" aria-label="Close">&times;</button>
+                </div>
 
-    <div class="profile-modal-content">
+                <form id="editProfileForm">
+                    <label for="editProfileName">Full Name</label>
+                    <input type="text" id="editProfileName" placeholder="Enter your name" required>
 
-        <div class="profile-modal-header">
-            <div>
-                <span class="eyebrow">PERSONAL DETAILS</span>
-                <h2>Edit Your Profile</h2>
+                    <label for="editProfilePhoto">Profile Picture</label>
+                    <input type="file" id="editProfilePhoto" accept="image/*">
+
+                    <div class="profile-modal-actions">
+                        <button type="button" class="secondary-button" id="cancelProfileEdit">Cancel</button>
+                        <button type="submit" class="primary-button">Save Changes</button>
+                    </div>
+                </form>
             </div>
-
-            <button type="button" id="closeProfileModal" class="modal-close">
-                &times;
-            </button>
         </div>
-
-        <form id="editProfileForm">
-
-            <label for="editProfileName">Full Name</label>
-            <input
-                type="text"
-                id="editProfileName"
-                placeholder="Enter your name"
-                required
-            >
-
-            <label for="editProfilePhoto">Profile Picture</label>
-            <input
-                type="file"
-                id="editProfilePhoto"
-                accept="image/*"
-            >
-
-            <div class="profile-modal-actions">
-                <button type="button" class="secondary-button" id="cancelProfileEdit">
-                    Cancel
-                </button>
-
-                <button type="submit" class="primary-button">
-                    Save Changes
-                </button>
-            </div>
-
-        </form>
-
-    </div>
-</div>
-
 
     </main>
 
-   <script src="js/theme.js" defer></script>
-<script src="js/events.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="js/profile.js" defer></script>
+    <!-- Scripts -->
+    <script src="js/theme.js" defer></script>
+    <script src="js/events.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    <script src="js/profile.js" defer></script>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.hash === "#my-tickets") {
-        document.getElementById("my-tickets")
-            ?.scrollIntoView({ behavior: "smooth" });
-    }
-});
-</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (window.location.hash === "#my-tickets") {
+                document.getElementById("my-tickets")?.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    </script>
 
 </body>
 </html>

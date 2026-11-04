@@ -66,4 +66,3 @@ window.EVENTO_EVENTS = [
 
 ];
 
-console.log("EVENTO mock events loaded:", window.EVENTO_EVENTS);
