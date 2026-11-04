@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="EVENTO - Discover, explore and register for exciting events.">
+
+    <title>EVENTO — Discover What's Happening</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JavaScript -->
+   <script src="js/theme.js" defer></script>
+<script src="js/events.js" defer></script>
+<script src="js/main.js" defer></script>
+
+<!-- PDF Ticket Generator -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script src="https://unpkg.com/html5-qrcode" defer></script>
+<script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+    <div class="nav-container">
+
+        <!-- Logo -->
+        <a href="#home" class="logo">
+            EVENTO<span>.</span>
+        </a>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links" id="navLinks">
+            <a href="#home" class="active">Home</a>
+            <a href="#events">Explore Events</a>
+            <a href="#categories">Categories</a>
+            <a href="profile.html#my-tickets">My Passes</a>
+        </nav>
+
+        <!-- Navbar Actions -->
+        <div class="nav-actions">
+
+            <!-- Theme Toggle -->
+            <button class="theme-toggle"
+                    id="themeToggle"
+                    aria-label="Toggle light and dark theme">
+                <span id="themeIcon">☾</span>
+            </button>
+
+            <!-- Explore Now -->
+            <a href="#events" class="nav-button">
+                Explore Now
+            </a>
+
+            <!-- Profile (LAST) -->
+            <a href="profile.html"
+               class="profile-link"
+               aria-label="My Profile">
+
+                <span class="nav-profile-avatar">
+
+                    <img id="navProfileImage"
+                         src=""
+                         alt="Profile"
+                         hidden>
+
+                    <svg id="navProfileIcon"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <circle cx="12" cy="8" r="4"
+                                stroke="currentColor"
+                                stroke-width="1.8"/>
+
+                        <path d="M4 21C4 16.8 7.6 14 12 14C16.4 14 20 16.8 20 21"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linecap="round"/>
+                    </svg>
+
+                </span>
+
+                <span>Profile</span>
+            </a>
+
+            <!-- Mobile Menu -->
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Toggle navigation">
+                ☰
+            </button>
+
+        </div>
+    </div>
+</header>
+
+    <main>
+
+        <!-- ================= HERO SECTION ================= -->
+
+        <section class="hero section-container" id="home">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    YOUR CAMPUS. YOUR COMMUNITY.
+                </span>
+
+                <h1>
+                    Find your next
+                    <span>great experience.</span>
+                </h1>
+
+                <p>
+                    Discover exciting events, meet new people and
+                    create memories. Everything happening around
+                    you, all in one place.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="#events" class="primary-button">
+                        Explore Events <span>→</span>
+                    </a>
+
+                    <a href="#categories" class="secondary-button">
+                        Browse Categories
+                    </a>
+
+                </div>
+
+                <div class="hero-stats">
+
+                    <div class="stat">
+                        <strong>Discover</strong>
+                        <span>Find interesting events</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>Connect</strong>
+                        <span>Meet your community</span>
+                    </div>
+
+                    <div class="stat">
+                        <strong>Experience</strong>
+                        <span>Make new memories</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=1200"
+                    alt="Crowd enjoying a live music festival"
+                >
+
+                <div class="image-caption">
+                    <span>LIVE EXPERIENCES</span>
+                    <strong>Something exciting is happening.</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CATEGORIES ================= -->
+
+        <section class="categories-section section-container"
+            id="categories">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">FIND YOUR INTEREST</span>
+                    <h2>Explore Categories</h2>
+                </div>
+
+            </div>
+
+            <div class="category-list" id="categoryList">
+
+                <button class="category-btn active" data-category="All">
+                    All Events
+                </button>
+
+                <button class="category-btn" data-category="Cultural">
+                    Cultural
+                </button>
+
+                <button class="category-btn" data-category="Technical">
+                    Technical
+                </button>
+
+                <button class="category-btn" data-category="Sports">
+                    Sports
+                </button>
+
+                <button class="category-btn" data-category="Music">
+                    Music
+                </button>
+
+                <button class="category-btn" data-category="Workshop">
+                    Workshops
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= UPCOMING EVENTS ================= -->
+
+        <section class="events-section section-container" id="events">
+
+          
+<div class="section-heading">
+
+    <!-- Section title -->
+    <div>
+        <span class="eyebrow">DON'T MISS OUT</span>
+        <h2>Upcoming Events</h2>
+        <p>Find something interesting to be part of.</p>
+    </div>
+
+    <!-- Search and price filter -->
+    <div class="events-tools">
+
+        <div class="search-box">
+            <span>⌕</span>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search events..."
+                aria-label="Search events"
+            >
+        </div>
+
+        <div class="price-filter">
+
+            <span>Entry Fee</span>
+
+            <button class="price-filter-btn active" data-price="all">
+                All
+            </button>
+
+            <button class="price-filter-btn" data-price="free">
+                Free
+            </button>
+
+            <button class="price-filter-btn" data-price="paid">
+                Paid
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+            <!-- JavaScript will insert event cards here -->
+
+            <div class="event-grid" id="eventGrid"></div>
+
+            <p class="empty-message" id="emptyMessage" hidden>
+                No events found. Try another search or category.
+            </p>
+
+        </section>
+
+
+        <!-- ================= FEATURED SECTION ================= -->
+
+        <section class="featured-section section-container">
+
+            <div class="featured-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1200"
+                    alt="Live music concert"
+                >
+
+            </div>
+
+            <div class="featured-content">
+
+                <span class="eyebrow">EDITOR'S PICK</span>
+
+                <h2>
+                    More than an event.
+                    It's an experience.
+                </h2>
+
+                <p>
+                    From unforgettable performances to exciting
+                    competitions, discover experiences that bring
+                    people together.
+                </p>
+
+                <a href="#events" class="primary-button">
+                    Discover What's Happening →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MY REGISTERED EVENTS ================= -->
+
+        <section class="my-events-section section-container"
+            id="my-events">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">YOUR EXPERIENCES</span>
+                    <h2>My Registered Events</h2>
+                    <p>Keep track of the events you have joined.</p>
+                </div>
+
+            </div>
+
+            <div class="registered-events" id="registeredEvents">
+
+                <div class="empty-registrations" id="emptyRegistrations">
+
+                    <div class="empty-icon">▢</div>
+
+                    <h3>No registered events yet</h3>
+
+                    <p>
+                        Your registered events and digital tickets
+                        will appear here.
+                    </p>
+
+                    <a href="#events" class="secondary-button">
+                        Explore Events
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= NEWSLETTER / CTA ================= -->
+
+        <section class="cta-section section-container">
+
+            <div class="cta-content">
+
+                <span class="eyebrow">STAY IN THE LOOP</span>
+
+                <h2>
+                    Your next experience
+                    is just around the corner.
+                </h2>
+
+                <p>
+                    Explore what's happening and never miss
+                    an opportunity to participate.
+                </p>
+
+                <a href="#events" class="primary-button">
+                    Find Your Event →
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a href="#home" class="logo">
+                    EVENTO<span>.</span>
+                </a>
+
+                <p>
+                    Discover events. Connect with people.
+                    Create experiences.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#home">Home</a>
+                <a href="#events">Events</a>
+                <a href="#categories">Categories</a>
+                <a href="profile.html#my-tickets">My Passes</a>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 EVENTO. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= EVENT DETAILS MODAL ================= -->
+
+    <div class="modal" id="eventModal" aria-hidden="true">
+
+        <div class="modal-content">
+
+            <button class="modal-close" data-close="eventModal"
+                aria-label="Close event details">
+                ×
+            </button>
+
+            <div id="eventModalContent"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= REGISTRATION MODAL ================= -->
+
+    <div class="modal" id="registrationModal" aria-hidden="true">
+
+        <div class="modal-content registration-content">
+
+            <button class="modal-close" data-close="registrationModal"
+                aria-label="Close registration">
+                ×
+            </button>
+
+            <span class="eyebrow">JOIN THE EXPERIENCE</span>
+
+            <h2>Event Registration</h2>
+
+            <p id="registrationEventName">
+                Complete your details to register.
+            </p>
+
+            <form id="registrationForm">
+
+                <input type="hidden" id="selectedEventId">
+
+                <div class="form-group">
+
+                    <label for="fullName">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your full name"
+                        required
+                        minlength="2"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="phone">Phone Number</label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="10-digit phone number"
+                        pattern="[6-9][0-9]{9}"
+                        required
+                    >
+
+                </div>
+
+                <button type="submit" class="primary-button form-submit">
+                    Confirm Registration →
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SUCCESS MODAL ================= -->
+
+    <div class="modal" id="successModal" aria-hidden="true">
+
+        <div class="modal-content success-content">
+
+            <div class="success-icon">✓</div>
+
+            <span class="eyebrow">REGISTRATION COMPLETE</span>
+
+            <h2>You're registered!</h2>
+
+            <p id="successMessage">
+                Your event registration was successful.
+            </p>
+
+            <div class="success-ticket-info"
+                id="successTicketInfo">
+            </div>
+
+            <button class="primary-button" id="viewMyEvents">
+                View My Events →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TICKET MODAL ================= -->
+
+    <div class="modal" id="ticketModal" aria-hidden="true">
+
+        <div class="modal-content ticket-content">
+
+            <button class="modal-close" data-close="ticketModal"
+                aria-label="Close ticket">
+                
+            </button>
+
+            <div id="ticketDetails"></div>
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

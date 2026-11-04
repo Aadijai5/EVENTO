@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer Dashboard | EVENTO</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .organizer-page {
+            max-width: 1150px;
+            margin: 50px auto;
+            padding: 25px;
+        }
+
+        .organizer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .organizer-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 35px;
+        }
+
+        .organizer-stat {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 24px;
+        }
+
+        .organizer-stat p {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .organizer-stat h2 {
+            color: var(--text);
+            font-size: 30px;
+        }
+
+        .scanner-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            max-width: 650px;
+        }
+
+        #reader {
+            width: 100%;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .scanner-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .scan-result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: var(--surface-soft);
+            color: var(--text);
+            display: none;
+        }
+
+        @media (max-width: 650px) {
+            .organizer-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="organizer-page">
+
+        <header class="organizer-header">
+            <div>
+                <span class="eyebrow">EVENTO MANAGEMENT</span>
+                <h1>Organizer Dashboard</h1>
+                <p>Manage registrations and event check-ins.</p>
+            </div>
+
+            <a href="index.html" class="primary-button">
+                Back to Website
+            </a>
+        </header>
+
+        <section class="organizer-stats">
+            <div class="organizer-stat">
+                <p>Total Registrations</p>
+                <h2 id="totalRegistrations">0</h2>
+            </div>
+
+            <div class="organizer-stat">
+                <p>Checked In</p>
+                <h2 id="checkedInCount">0</h2>
+            </div>
+
+            <div class="organizer-stat">
+                <p>Pending Check-ins</p>
+                <h2 id="pendingCount">0</h2>
+            </div>
+        </section>
+
+        <section class="scanner-panel">
+            <span class="eyebrow">ENTRY MANAGEMENT</span>
+            <h2>QR Ticket Scanner</h2>
+            <p>Scan a participant's EVENTO ticket to verify registration.</p>
+
+            <div id="reader"></div>
+
+            <div class="scanner-actions">
+                <button class="primary-button" id="startScanner">
+                    Start Scanner
+                </button>
+
+                <button class="secondary-button" id="stopScanner">
+                    Stop Scanner
+                </button>
+            </div>
+            <div class="manual-verification">
+    <h3>Manual Ticket Verification</h3>
+    <p>Enter a registration ID to test check-in.</p>
+
+    <input
+        type="text"
+        id="manualRegistrationId"
+        placeholder="Example: EVT-MVZ..."
+    >
+
+    <button class="primary-button" id="verifyManualTicket">
+        Verify Ticket
+    </button>
+</div>
+
+            <div class="scan-result" id="scanResult"></div>
+        </section>
+
+    </main>
+<!-- QR Scanner Library -->
+<script src="https://unpkg.com/html5-qrcode" defer></script>
+
+<!-- Organizer Dashboard JavaScript -->
+<script src="js/organizer.js" defer></script>
+    <script src="js/organizer.js" defer></script>
+
+</body>
+</html>

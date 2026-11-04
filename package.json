@@ -1,0 +1,12 @@
+{
+  "name": "evento",
+  "version": "1.0.0",
+  "description": "EVENTO is an event discovery and management platform designed to help students explore events, register for activities, and manage their digital event tickets.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
